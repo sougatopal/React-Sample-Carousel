@@ -1,0 +1,75 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.carousel-conatainer{
+  box-sizing: border-box;
+}
+.carousel{
+  width:300px;
+  overflow:hidden;
+  transform-style:preserve-3d;
+
+}
+.carousel-photo{
+  opacity: 0;
+  position: absolute;
+  top:0;
+  width: 100%;
+  margin: auto;
+  padding: 1rem 4rem;
+  z-index: 100;
+  transition: transform .5s, opacity .5s, z-index .5s;
+
+}
+.carousel-photo.initial,
+.carousel__photo.active {
+  opacity: 1;
+  position: relative;
+  z-index: 900;
+}
+.carousel-btn-prev,.carousel-btn-next{
+  position:absolute;
+  top:50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #FFF;
+  transform:translateY(50%);
+  border-radius: 50%;
+  cursor: pointer; 
+  z-index: 1001; /* Sit on top of everything */
+  border: 1px solid black;
+}
+.carousel-btn-next{
+  right:0;
+}
+.carousel-btn-prev{
+  left:0;
+}
+.carousel-btn-prev::after,.carousel-btn-next::after{
+  content:" ";
+  position:absolute;
+  width:10px;
+  height:10px;
+  top:50%;
+  left:54%;
+  border-right:2px solid black;
+  border-bottom:2px solid black;
+  transform:translate(-50%,-50%) rotate(135deg);
+}
+.carousel-btn-next::after{
+  transform:translate(-50%,-50%) rotate(-45deg);
+}
+.carousel-photo.prev,
+.carousel-photo.next {
+  z-index: 800;
+}
+.carousel-photo.prev {
+  transform: translateX(-100%); /* Move 'prev' item to the left */
+}
+.carousel-photo.next {
+  transform: translateX(100%); /* Move 'next' item to the right */
+}
+
+
+
